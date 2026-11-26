@@ -6,6 +6,26 @@
    edition-data.js, emner.js, rss.xml og sitemap.xml. */
 window.NORDLYS_META = [
   {
+    "url": "articles/bag-pigtraaden-gaza-whistleblowere-2026.html",
+    "forfatter": "Jonas Håkansson",
+    "titel": "Bag pigtråden: Hvad whistleblowere afslørede om Gazas uskrevne regler",
+    "kategori": "Udland · Dokumentation",
+    "dato": "2026-11-26",
+    "tid": "14:00",
+    "min": 9,
+    "billede": "gaza-whistleblowere-2026/jabalia-destruction.jpg",
+    "alt": "Ødelæggelser efter israelsk bombardement af Jabalia-lejren i Gazastriben",
+    "manchet": "ITV-dokumentaren »Breaking Ranks: Inside Israel's War« bragte sjældne vidnesbyrd fra aktive og tidligere israelske soldater frem i offentligheden — om gabet mellem officiel doktrin og hverdagens praksis i Gaza.",
+    "emner": [
+      "udland",
+      "mellemoesten",
+      "gaza",
+      "folkeret",
+      "whistleblower",
+      "dokumentar"
+    ]
+  },
+  {
     "url": "articles/hertil-og-ikke-laengere.html",
     "forfatter": "Jonas Håkansson",
     "titel": "Hertil og ikke længere",

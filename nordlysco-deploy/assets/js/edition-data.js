@@ -1,6 +1,18 @@
 /* Nordlys & Co. — artikelrækkefølge til swipe- og bladr-navigation (nyeste først). Genereret fra meta-artikler.js. */
 window.NORDLYS_EDITION = [
   {
+    "title": "Bag pigtråden: Hvad whistleblowere afslørede om Gazas uskrevne regler",
+    "category": "Udland · Dokumentation",
+    "date": "2026-11-26",
+    "author": "Jonas Håkansson",
+    "minutes": 9,
+    "image": "gaza-whistleblowere-2026/jabalia-destruction.jpg",
+    "alt": "Ødelæggelser efter israelsk bombardement af Jabalia-lejren i Gazastriben",
+    "deck": "ITV-dokumentaren »Breaking Ranks: Inside Israel's War« bragte sjældne vidnesbyrd fra aktive og tidligere israelske soldater frem i offentligheden — om gabet mellem officiel doktrin og hverdagens praksis i Gaza.",
+    "url": "articles/bag-pigtraaden-gaza-whistleblowere-2026.html",
+    "time": "14:00"
+  },
+  {
     "title": "Hertil og ikke længere",
     "category": "Samfund & Retsstat · Interviewserie",
     "date": "2026-11-26",

@@ -1,6 +1,12 @@
 /* Search index for Nordlys & Co. articles (newest first) */
 window.NORDLYS_INDEX = [
   {
+    "title": "Bag pigtråden: Hvad whistleblowere afslørede om Gazas uskrevne regler",
+    "cat": "Udland · Dokumentation",
+    "url": "articles/bag-pigtraaden-gaza-whistleblowere-2026.html",
+    "tags": "bag pigtråden gaza whistleblowere breaking ranks inside israels war itv dokumentar ben zand yotam vilk daniel mosquito protocol menneskelige skjolde drone krigsførelse gaza humanitarian foundation folkeret genevekonventionen idf udland dokumentation"
+  },
+  {
     "title": "Hertil og ikke længere",
     "cat": "Samfund & Retsstat · Interviewserie",
     "url": "articles/hertil-og-ikke-laengere.html",

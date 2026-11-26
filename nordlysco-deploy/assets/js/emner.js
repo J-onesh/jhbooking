@@ -100,6 +100,13 @@ window.NORDLYS_EMNE_STOF = {
   ],
   "udland": [
     {
+      "url": "articles/bag-pigtraaden-gaza-whistleblowere-2026.html",
+      "titel": "Bag pigtråden: Hvad whistleblowere afslørede om Gazas uskrevne regler",
+      "dato": "2026-11-26",
+      "min": "9",
+      "kategori": "Udland · Dokumentation"
+    },
+    {
       "url": "articles/iran-radioaktiv-bombe-washington-2026.html",
       "titel": "USA efterforsker formodet iransk »dirty bomb«-plot i Washington D.C. midt i Det Hvide Hus’ forsikringer",
       "dato": "2026-11-17",
