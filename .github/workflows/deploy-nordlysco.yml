@@ -115,12 +115,12 @@ jobs:
             "https://nordlysco.dk/articles/hertil-og-ikke-laengere.html" \
             "https://nordlysco.dk/assets/img/hertil-2026/imperiets-storhedstid-og-nedfald.jpg" \
             "https://nordlysco.dk/assets/img/hertil-2026/hertil-og-ikke-laengere-delekort-1200x630.jpg" \
+            "https://nordlysco.dk/articles/bag-pigtraaden-gaza-whistleblowere-2026.html" \
+            "https://nordlysco.dk/assets/img/gaza-whistleblowere-2026/jabalia-destruction.jpg" \
             "https://nordlysco.dk/assets/js/meta-artikler.js" \
             "https://nordlysco.dk/rss.xml" \
             "https://nordlysco.dk/sitemap.xml" \
             "https://nordlysco.dk/"; do
             code=$(curl -s -o /dev/null -w "%{http_code}" "$url")
-            echo "$code  $url
-            
+            echo "$code  $url"
           done
-          
