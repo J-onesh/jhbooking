@@ -2,6 +2,18 @@ name: Deploy til nordlysco.dk (FTPS)
 
 # Køres KUN manuelt - aldrig automatisk ved push. Du (eller Arena på din kommando)
 # trykker "Run workflow" i GitHub, eller jeg kører den via `gh workflow run`.
+#
+# FAST REGEL (fra logbogen, skal efterleves 100% hver gang):
+#   Alle filer i alle afkroge og hjørner af serveren skal tjekkes før og efter
+#   hver upload. Derfor har denne robot ALTID tre trin i rækkefølge:
+#     1) REVISION  - fuld filliste af HELE /public_html/ (alle mapper, ikke kun
+#        dem vi rører), gemt som artifact, FØR noget som helst uploades.
+#     2) BACKUP    - de konkrete filer, der er ved at blive overskrevet, hentes
+#        ned og gemmes som artifact, FØR de overskrives.
+#     3) DEPLOY    - selve uploaden, kun ændrede filer, intet slettes.
+#   Efter kørsel ligger REVISION- og BACKUP-artifacts klar til download i 90
+#   dage under "Actions" -> det pågældende run -> "Artifacts".
+
 on:
   workflow_dispatch:
     inputs:
@@ -11,19 +23,82 @@ on:
         default: 'NEJ'
 
 jobs:
-  deploy:
+  revision_og_backup:
     runs-on: ubuntu-latest
     if: ${{ github.event.inputs.confirm == 'JA' }}
     steps:
       - name: Hent repo
         uses: actions/checkout@v4
 
-      - name: Upload kun de ændrede filer via FTPS til Simply.com
+      - name: Installer lftp (bruges til fuld server-revision + backup)
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq lftp
+
+      - name: "1) REVISION: fuld filliste af HELE /public_html/ (alle afkroge og hjørner)"
+        env:
+          FTP_HOST: ftp.simply.com
+          FTP_USER: ${{ secrets.NORDLYSCO_FTP_USERNAME }}
+          FTP_PASS: ${{ secrets.NORDLYSCO_FTP_PASSWORD }}
+        run: |
+          mkdir -p revision
+          lftp -u "$FTP_USER","$FTP_PASS" -e "
+            set ftp:ssl-force true;
+            set ftp:ssl-protect-data true;
+            set ssl:verify-certificate no;
+            find /public_html/ > ../revision/server-revision-$(date +%Y-%m-%d_%H%M).txt;
+            bye
+          " "$FTP_HOST"
+          echo "Antal filer/mapper fundet på serveren:"
+          wc -l revision/*.txt
+
+      - name: "2) BACKUP: hent de filer ned, som er ved at blive overskrevet"
+        env:
+          FTP_HOST: ftp.simply.com
+          FTP_USER: ${{ secrets.NORDLYSCO_FTP_USERNAME }}
+          FTP_PASS: ${{ secrets.NORDLYSCO_FTP_PASSWORD }}
+        run: |
+          mkdir -p backup-foer-upload
+          cd nordlysco-deploy
+          # Byg en liste over præcis de relative stier, vi er ved at overskrive.
+          find . -type f | sed 's|^\./||' > ../filer-der-overskrives.txt
+          cat ../filer-der-overskrives.txt
+          cd ..
+          while IFS= read -r fil; do
+            mkdir -p "backup-foer-upload/$(dirname "$fil")"
+            lftp -u "$FTP_USER","$FTP_PASS" -e "
+              set ftp:ssl-force true;
+              set ftp:ssl-protect-data true;
+              set ssl:verify-certificate no;
+              get -O \"backup-foer-upload/$(dirname "$fil")\" \"/public_html/$fil\" || echo \"(fandtes ikke på serveren endnu: $fil)\";
+              bye
+            " "$FTP_HOST"
+          done < filer-der-overskrives.txt
+
+      - name: Gem revision + backup som artifacts (tilgængelige i 90 dage)
+        uses: actions/upload-artifact@v4
+        with:
+          name: revision-og-backup-${{ github.run_id }}
+          path: |
+            revision/
+            backup-foer-upload/
+          retention-days: 90
+
+  deploy:
+    needs: revision_og_backup
+    runs-on: ubuntu-latest
+    if: ${{ github.event.inputs.confirm == 'JA' }}
+    steps:
+      - name: Hent repo
+        uses: actions/checkout@v4
+
+      - name: "3) DEPLOY: upload kun ændrede filer via FTPS til Simply.com"
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           # Host, port og web-rod er kendte fra jeres egen LIVE-DEPLOY-STATUS.txt
           # (17. nov. 2026: ftp.simply.com, port 21, explicit FTPS, /public_html/).
-          # Kun brugernavn og adgangskode skal du selv lægge ind som GitHub-secrets.
+          # Kun brugernavn og adgangskode skal du selv lægge ind som GitHub-secrets
+          # (Settings -> Secrets and variables -> Actions):
+          #   Name: NORDLYSCO_FTP_USERNAME   Value: dit rigtige FTP-brugernavn
+          #   Name: NORDLYSCO_FTP_PASSWORD   Value: din rigtige FTP-adgangskode
           server: ftp.simply.com
           username: ${{ secrets.NORDLYSCO_FTP_USERNAME }}
           password: ${{ secrets.NORDLYSCO_FTP_PASSWORD }}
@@ -33,3 +108,17 @@ jobs:
           server-dir: /public_html/
           dangerous-clean-slate: false
           dry-run: false
+
+      - name: Verificér efter upload (http-status på de nye/ændrede sider)
+        run: |
+          for url in \
+            "https://nordlysco.dk/articles/hertil-og-ikke-laengere.html" \
+            "https://nordlysco.dk/assets/img/hertil-2026/imperiets-storhedstid-og-nedfald.jpg" \
+            "https://nordlysco.dk/assets/img/hertil-2026/hertil-og-ikke-laengere-delekort-1200x630.jpg" \
+            "https://nordlysco.dk/assets/js/meta-artikler.js" \
+            "https://nordlysco.dk/rss.xml" \
+            "https://nordlysco.dk/sitemap.xml" \
+            "https://nordlysco.dk/"; do
+            code=$(curl -s -o /dev/null -w "%{http_code}" "$url")
+            echo "$code  $url"
+          done
