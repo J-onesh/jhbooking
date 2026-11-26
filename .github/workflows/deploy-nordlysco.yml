@@ -1,0 +1,32 @@
+name: Deploy til nordlysco.dk (FTPS)
+
+# Køres KUN manuelt - aldrig automatisk ved push. Du (eller Arena på din kommando)
+# trykker "Run workflow" i GitHub, eller jeg kører den via `gh workflow run`.
+on:
+  workflow_dispatch:
+    inputs:
+      confirm:
+        description: 'Skriv JA for at bekræfte upload til LIVE nordlysco.dk'
+        required: true
+        default: 'NEJ'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.inputs.confirm == 'JA' }}
+    steps:
+      - name: Hent repo
+        uses: actions/checkout@v4
+
+      - name: Upload kun de ændrede filer via FTPS til Simply.com
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.NORDLYSCO_FTP_SERVER }}
+          username: ${{ secrets.NORDLYSCO_FTP_USERNAME }}
+          password: ${{ secrets.NORDLYSCO_FTP_PASSWORD }}
+          protocol: ftps
+          port: 21
+          local-dir: ./nordlysco-deploy/
+          server-dir: ${{ secrets.NORDLYSCO_FTP_REMOTE_DIR }}
+          dangerous-clean-slate: false
+          dry-run: false
