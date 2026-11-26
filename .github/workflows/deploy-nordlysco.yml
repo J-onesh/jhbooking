@@ -120,5 +120,7 @@ jobs:
             "https://nordlysco.dk/sitemap.xml" \
             "https://nordlysco.dk/"; do
             code=$(curl -s -o /dev/null -w "%{http_code}" "$url")
-            echo "$code  $url"
+            echo "$code  $url
+            
           done
+          
