@@ -21,12 +21,15 @@ jobs:
       - name: Upload kun de ændrede filer via FTPS til Simply.com
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          server: ${{ secrets.NORDLYSCO_FTP_SERVER }}
+          # Host, port og web-rod er kendte fra jeres egen LIVE-DEPLOY-STATUS.txt
+          # (17. nov. 2026: ftp.simply.com, port 21, explicit FTPS, /public_html/).
+          # Kun brugernavn og adgangskode skal du selv lægge ind som GitHub-secrets.
+          server: ftp.simply.com
           username: ${{ secrets.NORDLYSCO_FTP_USERNAME }}
           password: ${{ secrets.NORDLYSCO_FTP_PASSWORD }}
           protocol: ftps
           port: 21
           local-dir: ./nordlysco-deploy/
-          server-dir: ${{ secrets.NORDLYSCO_FTP_REMOTE_DIR }}
+          server-dir: /public_html/
           dangerous-clean-slate: false
           dry-run: false
