@@ -185,6 +185,54 @@ jobs:
       - name: Hent repo
         uses: actions/checkout@v4
 
+      - name: "2b) Valider artikel-struktur (stopper deploy hvis article-head/article-body mangler)"
+        # Fast tilbagevendende fejl (26.-27. nov. 2026): nye artikler mangler
+        # nogle gange <div class="article-head"> og <div class="article-body">
+        # omkring indholdet. Uden dem fejler BÅDE sprogskift (oversaet-krop.js
+        # kræver "article .article-body" og returnerer stiltiende, hvis den
+        # ikke findes) OG hele den responsive layout/skrift-styling på mobil
+        # (styles.css' max-width/padding/serif-regler sidder netop på
+        # .article-body). Dette trin stopper deployet med en klar fejl, hvis
+        # et nyt eller ændret artikel-HTML-dokument mangler strukturen,
+        # fremfor at opdage det bagefter på den live side.
+        run: |
+          python3 - << 'PYEOF'
+          import re, sys, pathlib
+
+          mapper = pathlib.Path("nordlysco-deploy/articles")
+          if not mapper.is_dir():
+              print("Ingen articles/-mappe i nordlysco-deploy/ - intet at validere.")
+              sys.exit(0)
+
+          fejl = []
+          for fil in sorted(mapper.glob("*.html")):
+              html = fil.read_text(encoding="utf-8", errors="replace")
+              if "<article" not in html:
+                  continue  # ikke en artikelside i denne skabelon
+              mangler = []
+              if not re.search(r'class="[^"]*\barticle-head\b[^"]*"', html):
+                  mangler.append('<div class="article-head"> (kicker/h1/dek/byline/del-knapper)')
+              if not re.search(r'class="[^"]*\barticle-body\b[^"]*"', html):
+                  mangler.append('<div class="article-body"> (selve brødteksten)')
+              if not re.search(r'class="[^"]*\barticle-hero\b[^"]*"', html):
+                  mangler.append('<figure class="article-hero"> (hovedbilledet)')
+              if re.search(r'class="hero"', html):
+                  mangler.append('class="hero" fundet - skal være "article-hero" (CSS kender ikke .hero)')
+              if mangler:
+                  fejl.append((fil.name, mangler))
+
+          if fejl:
+              print("::error::Artikel-struktur mangler i " + str(len(fejl)) + " fil(er) - deploy stoppet FØR upload.")
+              for navn, liste in fejl:
+                  print(f"\n--- {navn} ---")
+                  for m in liste:
+                      print(f"  - MANGLER: {m}")
+              print("\nSe .github/workflows/deploy-nordlysco.yml for den fulde forklaring og en reference-artikel (f.eks. kronik-to-aartier-i-skyggen.html).")
+              sys.exit(1)
+          else:
+              print(f"OK: alle {len(list(mapper.glob('*.html')))} artikler i nordlysco-deploy/articles/ har article-head, article-body og article-hero.")
+          PYEOF
+
       - name: "3) DEPLOY: upload filer via curl/FTPS til Simply.com"
         # Simply.coms FTP er en FTP-proxy ("FTP proxy ready (passive mode
         # required)"), som både lftp og SamKirkland/FTP-Deploy-Action
