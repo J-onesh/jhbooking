@@ -63,44 +63,32 @@ jobs:
           set +e
           mkdir -p revision
 
-          echo "=== Delvist tjek A: ren forbindelse uden find (debug-niveau 5) ==="
-          lftp -u "$FTP_USER","$FTP_PASS" -e "
-            debug 5;
-            set net:timeout 20;
-            set net:max-retries 2;
-            set ftp:ssl-force true;
-            set ftp:ssl-protect-data true;
-            set ssl:verify-certificate no;
-            pwd;
-            bye
-          " "$FTP_HOST" > lftp-debug-connect.txt 2>&1
-          connect_status=$?
-          echo "--- forbindelsestjek, exit-kode: $connect_status ---"
-          cat lftp-debug-connect.txt
+          echo "=== Delvist tjek A: curl verbose FTPS-forbindelse (port 21, explicit TLS) ==="
+          curl -v --connect-timeout 15 --ftp-ssl --insecure \
+            "ftp://$FTP_HOST:21/public_html/" \
+            -u "$FTP_USER:$FTP_PASS" \
+            -o /dev/null > curl-debug-ftps.txt 2>&1
+          curl_ftps_status=$?
+          echo "--- curl FTPS-tjek, exit-kode: $curl_ftps_status ---"
+          cat curl-debug-ftps.txt
 
           echo ""
-          echo "=== Delvist tjek B: samme, men uden tvungen SSL (i tilfælde af at FTPS fejler) ==="
-          lftp -u "$FTP_USER","$FTP_PASS" -e "
-            debug 5;
-            set net:timeout 20;
-            set net:max-retries 2;
-            set ftp:ssl-force false;
-            pwd;
-            bye
-          " "$FTP_HOST" > lftp-debug-nossl.txt 2>&1
-          nossl_status=$?
-          echo "--- tjek uden tvungen SSL, exit-kode: $nossl_status ---"
-          cat lftp-debug-nossl.txt
+          echo "=== Delvist tjek B: curl almindelig (ukrypteret) FTP, kun til diagnose ==="
+          curl -v --connect-timeout 15 \
+            "ftp://$FTP_HOST:21/public_html/" \
+            -u "$FTP_USER:$FTP_PASS" \
+            -o /dev/null > curl-debug-plainftp.txt 2>&1
+          curl_plain_status=$?
+          echo "--- curl almindelig FTP-tjek, exit-kode: $curl_plain_status ---"
+          cat curl-debug-plainftp.txt
 
-          if [ $connect_status -ne 0 ] && [ $nossl_status -ne 0 ]; then
-            ERRTXT_A=$(head -c 700 lftp-debug-connect.txt | tr '\n' ' ' | tr '\r' ' ')
-            ERRTXT_B=$(head -c 700 lftp-debug-nossl.txt | tr '\n' ' ' | tr '\r' ' ')
-            echo "::error::LFTP kan slet ikke forbinde til $FTP_HOST. Med FTPS: $ERRTXT_A | Uden tvungen SSL: $ERRTXT_B"
-            exit 1
+          if [ $curl_ftps_status -ne 0 ] && [ $curl_plain_status -ne 0 ]; then
+            ERRTXT_A=$(tail -c 900 curl-debug-ftps.txt | tr '\n' ' ' | tr '\r' ' ')
+            echo "::error::curl kan slet ikke forbinde/logge ind på $FTP_HOST. FTPS-forsøg (exit $curl_ftps_status): $ERRTXT_A"
           fi
 
           echo ""
-          echo "=== Forbindelse virker et sted - kører nu den rigtige filliste ==="
+          echo "=== Kører nu den rigtige filliste med lftp (uanset curl-resultat ovenfor) ==="
           lftp -u "$FTP_USER","$FTP_PASS" -e "
             set ftp:ssl-force true;
             set ftp:ssl-protect-data true;
@@ -124,7 +112,7 @@ jobs:
         run: |
           mkdir -p /tmp/ftp-debug-dump
           rm -f /tmp/ftp-debug-dump/seneste.txt
-          for f in lftp-debug-connect.txt lftp-debug-nossl.txt lftp-trin1-output.txt; do
+          for f in curl-debug-ftps.txt curl-debug-plainftp.txt lftp-trin1-output.txt; do
             if [ -f "$f" ]; then
               echo "=== $f ===" >> /tmp/ftp-debug-dump/seneste.txt
               cat "$f" >> /tmp/ftp-debug-dump/seneste.txt
