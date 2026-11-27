@@ -33,12 +33,32 @@ jobs:
       - name: Installer lftp (bruges til fuld server-revision + backup)
         run: sudo apt-get update -qq && sudo apt-get install -y -qq lftp
 
+      - name: "0) Tjek at FTP-secrets rent faktisk er sat (uden at afsløre værdierne)"
+        env:
+          FTP_USER: ${{ secrets.NORDLYSCO_FTP_USERNAME }}
+          FTP_PASS: ${{ secrets.NORDLYSCO_FTP_PASSWORD }}
+        run: |
+          fail=0
+          if [ -z "$FTP_USER" ]; then
+            echo "::error::Secret NORDLYSCO_FTP_USERNAME er TOM eller mangler helt (tjek at den er en Repository secret under Settings -> Secrets and variables -> Actions, IKKE under Agents secrets eller et Environment)."
+            fail=1
+          fi
+          if [ -z "$FTP_PASS" ]; then
+            echo "::error::Secret NORDLYSCO_FTP_PASSWORD er TOM eller mangler helt (tjek at den er en Repository secret under Settings -> Secrets and variables -> Actions, IKKE under Agents secrets eller et Environment)."
+            fail=1
+          fi
+          if [ "$fail" -eq 1 ]; then
+            exit 1
+          fi
+          echo "Begge secrets er til stede (længder: bruger=${#FTP_USER} tegn, adgangskode=${#FTP_PASS} tegn)."
+
       - name: "1) REVISION: fuld filliste af HELE /public_html/ (alle afkroge og hjørner)"
         env:
           FTP_HOST: ftp.simply.com
           FTP_USER: ${{ secrets.NORDLYSCO_FTP_USERNAME }}
           FTP_PASS: ${{ secrets.NORDLYSCO_FTP_PASSWORD }}
         run: |
+          set +e
           mkdir -p revision
           lftp -u "$FTP_USER","$FTP_PASS" -e "
             set ftp:ssl-force true;
@@ -46,7 +66,15 @@ jobs:
             set ssl:verify-certificate no;
             find /public_html/ > ../revision/server-revision-$(date +%Y-%m-%d_%H%M).txt;
             bye
-          " "$FTP_HOST"
+          " "$FTP_HOST" > lftp-trin1-output.txt 2>&1
+          status=$?
+          echo "--- lftp output (trin 1) ---"
+          cat lftp-trin1-output.txt
+          if [ $status -ne 0 ]; then
+            ERRTXT=$(tail -c 900 lftp-trin1-output.txt | tr '\n' ' ' | tr '\r' ' ' | sed 's/%0A/ /g')
+            echo "::error::LFTP FEJLEDE i trin 1 (REVISION), exit-kode $status. Output: $ERRTXT"
+            exit $status
+          fi
           echo "Antal filer/mapper fundet på serveren:"
           wc -l revision/*.txt
 
@@ -70,7 +98,7 @@ jobs:
               set ssl:verify-certificate no;
               get -O \"backup-foer-upload/$(dirname "$fil")\" \"/public_html/$fil\" || echo \"(fandtes ikke på serveren endnu: $fil)\";
               bye
-            " "$FTP_HOST"
+            " "$FTP_HOST" 2>&1 | tee -a lftp-trin2-output.txt
           done < filer-der-overskrives.txt
 
       - name: Gem revision + backup som artifacts (tilgængelige i 90 dage)
