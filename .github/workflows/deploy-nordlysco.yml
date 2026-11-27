@@ -60,6 +60,45 @@ jobs:
         run: |
           set +e
           mkdir -p revision
+
+          echo "=== Delvist tjek A: ren forbindelse uden find (debug-niveau 5) ==="
+          lftp -u "$FTP_USER","$FTP_PASS" -e "
+            debug 5;
+            set net:timeout 20;
+            set net:max-retries 2;
+            set ftp:ssl-force true;
+            set ftp:ssl-protect-data true;
+            set ssl:verify-certificate no;
+            pwd;
+            bye
+          " "$FTP_HOST" > lftp-debug-connect.txt 2>&1
+          connect_status=$?
+          echo "--- forbindelsestjek, exit-kode: $connect_status ---"
+          cat lftp-debug-connect.txt
+
+          echo ""
+          echo "=== Delvist tjek B: samme, men uden tvungen SSL (i tilfælde af at FTPS fejler) ==="
+          lftp -u "$FTP_USER","$FTP_PASS" -e "
+            debug 5;
+            set net:timeout 20;
+            set net:max-retries 2;
+            set ftp:ssl-force false;
+            pwd;
+            bye
+          " "$FTP_HOST" > lftp-debug-nossl.txt 2>&1
+          nossl_status=$?
+          echo "--- tjek uden tvungen SSL, exit-kode: $nossl_status ---"
+          cat lftp-debug-nossl.txt
+
+          if [ $connect_status -ne 0 ] && [ $nossl_status -ne 0 ]; then
+            ERRTXT_A=$(head -c 700 lftp-debug-connect.txt | tr '\n' ' ' | tr '\r' ' ')
+            ERRTXT_B=$(head -c 700 lftp-debug-nossl.txt | tr '\n' ' ' | tr '\r' ' ')
+            echo "::error::LFTP kan slet ikke forbinde til $FTP_HOST. Med FTPS: $ERRTXT_A | Uden tvungen SSL: $ERRTXT_B"
+            exit 1
+          fi
+
+          echo ""
+          echo "=== Forbindelse virker et sted - kører nu den rigtige filliste ==="
           lftp -u "$FTP_USER","$FTP_PASS" -e "
             set ftp:ssl-force true;
             set ftp:ssl-protect-data true;
