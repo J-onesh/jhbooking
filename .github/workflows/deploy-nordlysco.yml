@@ -185,24 +185,53 @@ jobs:
       - name: Hent repo
         uses: actions/checkout@v4
 
-      - name: "3) DEPLOY: upload kun ændrede filer via FTPS til Simply.com"
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          # Host, port og web-rod er kendte fra jeres egen LIVE-DEPLOY-STATUS.txt
-          # (17. nov. 2026: ftp.simply.com, port 21, explicit FTPS, /public_html/).
-          # Kun brugernavn og adgangskode skal du selv lægge ind som GitHub-secrets
-          # (Settings -> Secrets and variables -> Actions):
-          #   Name: NORDLYSCO_FTP_USERNAME   Value: dit rigtige FTP-brugernavn
-          #   Name: NORDLYSCO_FTP_PASSWORD   Value: din rigtige FTP-adgangskode
-          server: ftp.simply.com
-          username: ${{ secrets.NORDLYSCO_FTP_USERNAME }}
-          password: ${{ secrets.NORDLYSCO_FTP_PASSWORD }}
-          protocol: ftps
-          port: 21
-          local-dir: ./nordlysco-deploy/
-          server-dir: /public_html/
-          dangerous-clean-slate: false
-          dry-run: false
+      - name: "3) DEPLOY: upload filer via curl/FTPS til Simply.com"
+        # Simply.coms FTP er en FTP-proxy ("FTP proxy ready (passive mode
+        # required)"), som både lftp og SamKirkland/FTP-Deploy-Action
+        # (node-biblioteket basic-ftp) fejler imod ("find: Not connected"
+        # hhv. "Server sent FIN packet unexpectedly"). curl er den eneste
+        # klient, der har vist sig at virke pålideligt mod denne proxy
+        # (bekræftet i REVISION-trinnet ovenfor), så selve uploaden bruger
+        # også curl. --ftp-create-dirs opretter mapper på serveren efter
+        # behov. Mappen ./nordlysco-deploy/ er lille (få titals filer), så
+        # alt uploades hver gang - ingen slettes, intet andet røres.
+        env:
+          FTP_HOST: ftp.simply.com
+          FTP_USER: ${{ secrets.NORDLYSCO_FTP_USERNAME }}
+          FTP_PASS: ${{ secrets.NORDLYSCO_FTP_PASSWORD }}
+        run: |
+          set +e
+          cd nordlysco-deploy
+          find . -type f | sed 's|^\./||' > ../filer-der-uploades.txt
+          cd ..
+          echo "=== Filer der uploades ==="
+          cat filer-der-uploades.txt
+
+          fail=0
+          : > curl-deploy-output.txt
+          while IFS= read -r fil; do
+            [ -z "$fil" ] && continue
+            echo "Uploader: $fil"
+            curl -s --connect-timeout 20 --ftp-ssl --insecure --ftp-create-dirs \
+              -u "$FTP_USER:$FTP_PASS" \
+              -T "nordlysco-deploy/$fil" \
+              "ftp://$FTP_HOST:21/public_html/$fil" >> curl-deploy-output.txt 2>&1
+            status=$?
+            if [ $status -ne 0 ]; then
+              echo "FEJL ved upload af $fil (curl exit-kode $status)" | tee -a curl-deploy-output.txt
+              fail=1
+            fi
+          done < filer-der-uploades.txt
+
+          echo ""
+          echo "=== curl-output ==="
+          cat curl-deploy-output.txt
+
+          if [ "$fail" -ne 0 ]; then
+            echo "::error::En eller flere filer kunne ikke uploades til $FTP_HOST. Se curl-deploy-output.txt ovenfor."
+            exit 1
+          fi
+          echo "Alle filer uploadet succesfuldt."
 
       - name: Verificér efter upload (http-status på de nye/ændrede sider)
         run: |
