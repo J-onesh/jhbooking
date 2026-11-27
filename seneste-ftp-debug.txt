@@ -1,0 +1,753 @@
+=== curl-revision-err.txt ===
+
+=== revision/server-revision-2026-11-27_2057.txt ===
+drwxr-xr-x   9 nordlysco.dk nordlysco.dk    12288 Nov 27 20:25 .
+drwxr-xr-x   7 nordlysco.dk nordlysco.dk     4096 Nov 13 07:45 ..
+-rw-r--r--   1 nordlysco.dk nordlysco.dk     3849 Nov 27 20:29 .ftp-deploy-sync-state.json
+-rw-r--r--   1 nordlysco.dk nordlysco.dk     5164 Nov 17 00:56 .htaccess
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 11 13:05 .well-known
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    15720 Nov 25 22:57 404.html
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    11085 Nov 17 23:32 LOCKBOOK.md
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   128361 Nov 25 22:59 LOGBOG.md
+-rw-r--r--   1 nordlysco.dk nordlysco.dk     8718 Nov 18 03:09 REDESIGN-NOTES.md
+-rw-r--r--   1 nordlysco.dk nordlysco.dk     2918 Nov 17 23:32 SÅDAN-LÆGGER-DU-DET-OP.md
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    14324 Nov 11 02:27 UPLOAD.md
+-rw-r--r--   1 nordlysco.dk nordlysco.dk     5125 Nov 17 23:32 _korrektur.py
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    18014 Nov 25 22:57 about.html
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    21469 Nov 25 22:57 advertise.html
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 13 07:45 api
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 27 20:25 articles
+drwxr-xr-x   7 nordlysco.dk nordlysco.dk     4096 Nov 20 14:43 assets
+-rw-r--r--   1 nordlysco.dk nordlysco.dk      497 Nov 19 12:19 avis.html
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    17408 Nov 25 22:58 contact.html
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 24 14:15 data
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    21048 Nov 25 22:58 emne-erhverv.html
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    23174 Nov 25 22:58 emne-historie.html
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    19120 Nov 25 22:58 emne-klima-energi.html
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    18898 Nov 25 22:58 emne-kronik-debat.html
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    23285 Nov 25 22:58 emne-samfund.html
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    23475 Nov 25 22:58 emne-tech-ai.html
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    22222 Nov 25 22:58 emne-udland.html
+-rw-r--r--   1 nordlysco.dk nordlysco.dk     5750 Nov 19 12:19 favicon.ico
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    23332 Nov 25 22:58 forum.html
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    21801 Nov 25 22:58 funktionel-ai.html
+-rw-r--r--   1 nordlysco.dk nordlysco.dk     4598 Nov 23 00:47 funktionel-ai.txt
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    33152 Nov 25 22:58 index.html
+drwxr-xr-x   6 nordlysco.dk nordlysco.dk     4096 Nov 10 04:23 lyd
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    20688 Nov 25 22:58 newsletter.html
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 15 10:59 nyhedsbrev
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    18532 Nov 25 22:58 privacy.html
+-rw-r--r--   1 nordlysco.dk nordlysco.dk     3250 Nov 17 23:33 publiceringsnoter.md
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    37069 Nov 25 22:58 research-notat-alles-laegehus.html
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    27506 Nov 17 23:33 research-notat-alles-laegehus.md
+-rw-r--r--   1 nordlysco.dk nordlysco.dk       84 Nov 13 00:56 robots.txt
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    18136 Nov 27 20:32 rss.xml
+-rw-r--r--   1 nordlysco.dk nordlysco.dk      549 Nov 19 12:20 site.webmanifest
+-rw-r--r--   1 nordlysco.dk nordlysco.dk     5956 Nov 27 20:32 sitemap.xml
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    19433 Nov 25 22:58 standards.html
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    23676 Nov 25 22:58 stoet.html
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    16778 Nov 25 22:58 terms.html
+
+.well-known:
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 11 13:05 .
+drwxr-xr-x   9 nordlysco.dk nordlysco.dk    12288 Nov 27 20:25 ..
+-rw-r--r--   1 nordlysco.dk nordlysco.dk      261 Nov 11 13:05 security.txt
+
+api:
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 13 07:45 .
+drwxr-xr-x   9 nordlysco.dk nordlysco.dk    12288 Nov 27 20:25 ..
+-rw-r--r--   1 nordlysco.dk nordlysco.dk      409 Nov 13 07:45 .htaccess
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    18857 Nov 13 04:26 forum-seed-data.php
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    50521 Nov 13 08:18 forum.php
+
+articles:
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 27 20:25 .
+drwxr-xr-x   9 nordlysco.dk nordlysco.dk    12288 Nov 27 20:25 ..
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    26621 Nov 25 22:57 agentic-ai-danish-back-office.html
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    44619 Nov 25 22:57 ai-ude-af-kontrol-2026.html
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    38250 Nov 25 22:57 alles-laegehus-lagemangel-2026.html
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    36688 Nov 25 22:57 amoc-atlantisk-stroem-chicago-2026.html
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    23247 Nov 27 20:32 bag-pigtraaden-gaza-whistleblowere-2026.html
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    84817 Nov 25 22:57 crop-circles-409-cirkler.html
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    60344 Nov 25 22:57 de-hundrede-knapper-ai-risiko.html
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    34704 Nov 25 22:57 debat-voldsoffer-erstatningssystemet-svigter.html
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    44324 Nov 25 22:57 dobbeltspalten-nobelpris-2026.html
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    25534 Nov 25 22:57 editorial-disclose-machines.html
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    26660 Nov 25 22:57 eu-ai-act-plain-language.html
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    30513 Nov 25 22:57 faengsler-kvindebesog-prostitution.html
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    25399 Nov 25 22:57 five-things-european-ai-november.html
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   147143 Nov 25 22:57 fra-christiansborg-til-hollywood-2026.html
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    88414 Nov 25 22:57 frimurerne-lysbyggerne-2026.html
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    50533 Nov 25 22:57 gaza-og-vestbredden-i-billeder-2026.html
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    44017 Nov 25 22:57 grand-theft-auto-vi-2026.html
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    32733 Nov 27 20:32 hertil-og-ikke-laengere.html
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    26360 Nov 25 22:57 hoejsterets-dom-noegenvisitation.html
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    25744 Nov 25 22:57 how-danish-one-person-companies-get-paid.html
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    43580 Nov 25 22:57 ikke-en-sammensvaergelse-et-system.html
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    39539 Nov 25 22:57 iran-radioaktiv-bombe-washington-2026.html
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    35199 Nov 25 22:57 israelsk-luftangreb-nasser-hospital-gaza.html
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    41778 Nov 25 22:57 jim-al-khalili-portraet-2026.html
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    86163 Nov 25 22:57 konspirationsteorier-der-viste-sig-at-vaere-sande.html
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    35119 Nov 25 22:57 kronik-to-aartier-i-skyggen.html
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    59836 Nov 25 22:57 london-palestine-film-festival-27-2026.html
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    40359 Nov 25 22:58 mike-marcum-tidsmaskinen-2026.html
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    26421 Nov 25 22:58 nordic-offshore-wind.html
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    30927 Nov 25 22:58 operation-highjump-1946-1947.html
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    52708 Nov 25 22:58 otte-aartier-krig-israel-1948-2026.html
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    26930 Nov 25 22:58 paragraf-6-visitationszoner-analyse.html
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    29796 Nov 25 22:58 peter-thiel-og-palantir.html
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    41643 Nov 25 22:58 simon-squibb-oekonomi-raad-max-amini-2026.html
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    66666 Nov 25 22:58 trump-produkter-forretningsimperium.html
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    35969 Nov 25 22:58 tupac-officiel-udlaegning-tvivl-2026.html
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   939552 Nov 25 22:58 vandet-under-verden.html
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    69744 Nov 25 22:58 vestbredden-bryllupper-begravelser-razziaer-2026.html
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    50406 Nov 25 22:58 voldsomme-scener-derby-parken-udebanefans.html
+
+assets:
+drwxr-xr-x   7 nordlysco.dk nordlysco.dk     4096 Nov 20 14:43 .
+drwxr-xr-x   9 nordlysco.dk nordlysco.dk    12288 Nov 27 20:25 ..
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   366175 Nov 18 01:24 Nordlys & Co._Media_Kit_2026.pdf
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   366175 Nov 18 01:24 NordlysCo_Media_Kit_2026.pdf
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 17 23:32 css
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 14 16:23 fonts
+drwxr-xr-x  32 nordlysco.dk nordlysco.dk     4096 Nov 27 20:25 img
+drwxr-xr-x   3 nordlysco.dk nordlysco.dk     4096 Nov 20 05:52 js
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 21 10:40 video
+
+assets/css:
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 17 23:32 .
+drwxr-xr-x   7 nordlysco.dk nordlysco.dk     4096 Nov 20 14:43 ..
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    42681 Nov 23 07:31 broadsheet.css
+-rw-r--r--   1 nordlysco.dk nordlysco.dk     5009 Nov 16 10:53 emner.css
+-rw-r--r--   1 nordlysco.dk nordlysco.dk      199 Nov 13 00:55 kilder.css
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    49934 Nov 23 07:31 styles.css
+
+assets/fonts:
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 14 16:23 .
+drwxr-xr-x   7 nordlysco.dk nordlysco.dk     4096 Nov 20 14:43 ..
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    48256 Nov 11 01:35 inter-400.woff2
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    48256 Nov 11 01:35 inter-600.woff2
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    48256 Nov 11 01:35 inter-800.woff2
+-rw-r--r--   1 nordlysco.dk nordlysco.dk     1658 Nov 14 16:23 inter-lokal.css
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    14124 Nov 14 16:23 playfair-600i-latin-ext.woff2
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    23176 Nov 14 16:23 playfair-600i-latin.woff2
+
+assets/img:
+drwxr-xr-x  32 nordlysco.dk nordlysco.dk     4096 Nov 27 20:25 .
+drwxr-xr-x   7 nordlysco.dk nordlysco.dk     4096 Nov 20 14:43 ..
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    13337 Nov 17 10:33 KILDER.md
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   205894 Nov 12 18:05 ai-agents-nordic.jpg
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 11 01:48 ai-debat
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 15 09:06 ai-ude-af-kontrol
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 16 09:01 al-khalili
+drwxr-xr-x   3 nordlysco.dk nordlysco.dk     4096 Nov 17 12:25 alles-laegehus-2026
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 21 10:40 amoc-2026
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 15 08:24 annoncer
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    39915 Nov 13 09:53 apple-touch-icon.png
+-rw-r--r--   1 nordlysco.dk nordlysco.dk     5282 Nov 12 18:05 cph-skyline.svg
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov  9 08:09 credits
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 10 23:41 crop-circles
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 25 22:54 del
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 11 10:21 derby-2026
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 16 08:56 dobbeltspalte
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 11 01:48 domstol
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   383011 Nov 12 18:06 eu-ai-act-bruessels.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk     3153 Nov 13 09:53 favicon-32.png
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   171582 Nov 18 03:10 favicon.svg
+drwxr-xr-x   3 nordlysco.dk nordlysco.dk     4096 Nov 15 03:51 frimurerne-2026
+drwxr-xr-x   3 nordlysco.dk nordlysco.dk     4096 Nov 14 13:50 gaza-2026
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 27 20:25 gaza-whistleblowere-2026
+drwxr-xr-x   3 nordlysco.dk nordlysco.dk     4096 Nov 16 23:41 gta6-2026
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   286804 Nov 12 18:06 hero-aurora-copenhagen.jpg
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 27 20:25 hertil-2026
+drwxr-xr-x   3 nordlysco.dk nordlysco.dk     4096 Nov 25 22:53 historie-2026
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    39915 Nov 13 09:53 i180.png
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    56015 Nov 13 09:53 icon-192.png
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   128411 Nov 18 03:10 icon-512.png
+drwxr-xr-x   3 nordlysco.dk nordlysco.dk     4096 Nov 17 10:32 iran-dc-2026
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    92069 Nov 10 02:38 jordens-skjulte-vande.jpg
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 12 17:45 konspiration
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   308292 Nov 13 09:53 logo-mark.png
+drwxr-xr-x   3 nordlysco.dk nordlysco.dk     4096 Nov 17 02:39 lpff-2026
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 21 22:35 magtens-maend
+drwxr-xr-x   3 nordlysco.dk nordlysco.dk     4096 Nov 15 07:58 mike-marcum-2026
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   210395 Nov 12 18:06 newsroom-night-desk.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   135152 Nov 18 03:10 nordlys-app-circle-2026.png
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    25515 Nov 18 03:10 nordlys-apple-2026.png
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    28337 Nov 18 03:10 nordlys-icon-192-2026.png
+-rw-r--r--   1 nordlysco.dk nordlysco.dk     1809 Nov 18 03:10 nordlys-icon-32-2026.png
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   128411 Nov 18 03:10 nordlys-icon-512-2026.png
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    62664 Nov 18 03:10 nordlys-lockup-2026.png
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   128411 Nov 18 03:10 nordlys-logo-2026.png
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   171582 Nov 18 03:10 nordlys-mark-broadsheet.svg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    59760 Nov 18 03:10 nordlys-share-2026.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   164813 Nov 18 03:10 nordlys-share-2026.png
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    41071 Nov 18 03:10 nordlys-wave-2026.png
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   188751 Nov 12 18:06 offshore-wind-denmark.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    53633 Nov 13 09:53 og-image.jpg
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 20 05:52 operation-highjump-1946-1947
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 18 19:51 peter-thiel-palantir
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 11 01:48 protokol
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   188906 Nov  9 17:30 pyramide-resonans.jpg
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 14 16:11 simon-squibb-2026
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 11 10:44 trump-produkter
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   311836 Nov  9 17:31 tunguska.jpg
+drwxr-xr-x   3 nordlysco.dk nordlysco.dk     4096 Nov 23 06:21 tupac-2026
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    79035 Nov 20 14:43 video-ai-questions-poster.jpg
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 13 12:08 voldsoffer-debat
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   185119 Nov  9 17:31 wardenclyffe.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   176863 Nov 17 23:33 watercolor-paper-wash.jpg
+
+assets/img/ai-debat:
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 11 01:48 .
+drwxr-xr-x  32 nordlysco.dk nordlysco.dk     4096 Nov 27 20:25 ..
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    84348 Nov 10 07:53 andrew-mcafee.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   209286 Nov 10 07:54 ed-zitron.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    96521 Nov 10 07:54 geoffrey-hinton.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   544811 Nov 10 07:54 hero-serverhall.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   110044 Nov 10 07:54 nate-soares.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   152963 Nov 10 07:54 roman-yampolskiy.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   162014 Nov 10 07:54 sam-altman.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   144968 Nov 11 02:12 serverhall-gang.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   363828 Nov 11 02:12 serverhall-naer.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   156966 Nov 10 07:54 waymo.jpg
+
+assets/img/ai-ude-af-kontrol:
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 15 09:06 .
+drwxr-xr-x  32 nordlysco.dk nordlysco.dk     4096 Nov 27 20:25 ..
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   269183 Nov 16 10:53 datacenter.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   159104 Nov 16 10:53 dommedagsur.jpg
+
+assets/img/al-khalili:
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 16 09:01 .
+drwxr-xr-x  32 nordlysco.dk nordlysco.dk     4096 Nov 27 20:25 ..
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   243687 Nov 16 10:53 forelaesningssalen.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   139969 Nov 16 10:53 radio-studiet.jpg
+
+assets/img/alles-laegehus-2026:
+drwxr-xr-x   3 nordlysco.dk nordlysco.dk     4096 Nov 17 12:25 .
+drwxr-xr-x  32 nordlysco.dk nordlysco.dk     4096 Nov 27 20:25 ..
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 17 12:25 1600
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    37299 Nov 17 23:33 lagedaekning.jpg
+
+assets/img/alles-laegehus-2026/1600:
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 17 12:25 .
+drwxr-xr-x   3 nordlysco.dk nordlysco.dk     4096 Nov 17 12:25 ..
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    96705 Nov 17 23:33 lagedaekning.jpg
+
+assets/img/amoc-2026:
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 21 10:40 .
+drwxr-xr-x  32 nordlysco.dk nordlysco.dk     4096 Nov 27 20:25 ..
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   282420 Nov 21 10:40 chicago-vinter.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   194281 Nov 21 10:40 fluer.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   284732 Nov 21 10:40 groenland.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   136000 Nov 21 10:40 havstroem.jpg
+
+assets/img/annoncer:
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 15 08:24 .
+drwxr-xr-x  32 nordlysco.dk nordlysco.dk     4096 Nov 27 20:25 ..
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    52994 Nov 15 08:24 nordlys-ai-sidebar.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    41026 Nov 15 08:24 nordlys-ai-topbanner-800.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   146388 Nov 15 08:24 nordlys-ai-topbanner.jpg
+
+assets/img/credits:
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov  9 08:09 .
+drwxr-xr-x  32 nordlysco.dk nordlysco.dk     4096 Nov 27 20:25 ..
+-rw-r--r--   1 nordlysco.dk nordlysco.dk     1641 Nov 12 18:05 CREDITS.md
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   114554 Nov 12 18:05 pol_p1_0.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   133406 Nov 12 18:05 pol_p1_1.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   336377 Nov 12 18:05 pol_p2_0.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   304291 Nov 12 18:05 pol_p2_1.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   265950 Nov 12 18:06 prs_p1_0.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   472662 Nov 12 18:06 prs_p3_0.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   177235 Nov 12 18:06 prs_p3_1.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   267494 Nov 12 18:06 prs_p4_0.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   267494 Nov 12 18:06 prs_p4_1.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   461907 Nov 12 18:06 prs_p4_2.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   461907 Nov 12 18:06 prs_p4_3.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   181126 Nov 12 18:06 prs_p5_0.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   181126 Nov 12 18:06 prs_p5_1.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   349535 Nov 12 18:06 prs_p6_0.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   349535 Nov 12 18:06 prs_p6_1.jpg
+
+assets/img/crop-circles:
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 10 23:41 .
+drwxr-xr-x  32 nordlysco.dk nordlysco.dk     4096 Nov 27 20:25 ..
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   397733 Nov 10 23:26 ancona-2007.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   978620 Nov 10 23:27 ancona-inside-2007.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   156341 Nov 10 23:27 arecibo-1974-chilbolton-2001.png
+-rw-r--r--   1 nordlysco.dk nordlysco.dk     1133 Nov 10 23:01 barbury-1991.svg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   230830 Nov 10 23:27 bedersdorf-fake.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   222063 Nov 10 23:27 constellation-merger.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   522301 Nov 10 23:27 diessenhofen-2008.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   184927 Nov 10 23:01 diessenhofen.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   173340 Nov 10 23:27 dietzenbach-2008.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    85652 Nov 10 23:27 field-south-of-stonehenge.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   176226 Nov 10 23:01 hero-spiral.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   782599 Nov 10 23:27 julia-set-c.png
+-rw-r--r--   1 nordlysco.dk nordlysco.dk  1727590 Nov 10 23:41 julia-set-stonehenge-1996.png
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   218586 Nov 10 23:01 knoll-down.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   158690 Nov 10 23:27 mandelbrot.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   232974 Nov 10 23:01 milk-hill-field.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   107193 Nov 10 23:01 pi-barbury.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    68033 Nov 10 23:27 sarraltroff-2018.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   218943 Nov 10 23:27 sh-1906-balloon.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   427894 Nov 10 23:27 sh-from-a303.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   406799 Nov 10 23:27 sh-stones-close.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   101389 Nov 10 23:27 stonehenge-1996-diagram.png
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   190477 Nov 10 23:01 swiss-2009.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   360015 Nov 10 23:27 teckborn-2009.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk  1114837 Nov 10 23:27 teckborn-detail-2009.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   130290 Nov 10 23:27 viljaympyra.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    97714 Nov 10 23:27 wheat-stonehenge.jpg
+
+assets/img/del:
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 25 22:54 .
+drwxr-xr-x  32 nordlysco.dk nordlysco.dk     4096 Nov 27 20:25 ..
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   155831 Nov 11 19:11 agentic-ai-danish-back-office.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    81695 Nov 17 23:33 alles-laegehus-lagemangel-2026.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   131392 Nov 11 19:11 crop-circles-409-cirkler.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   255139 Nov 11 19:11 de-hundrede-knapper-ai-risiko.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   124817 Nov 13 12:08 debat-voldsoffer-erstatningssystemet-svigter.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   128136 Nov 11 19:12 editorial-disclose-machines.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   142400 Nov 11 19:12 eu-ai-act-plain-language.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   186049 Nov 11 19:12 faengsler-kvindebesog-prostitution.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   142400 Nov 11 19:12 five-things-european-ai-november.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   222025 Nov 15 07:58 frimurerne-lysbyggerne-2026.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   285105 Nov 14 15:03 gaza-og-vestbredden-i-billeder-2026.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   271300 Nov 16 23:41 grand-theft-auto-vi-2026.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   117502 Nov 11 19:12 hoejsterets-dom-noegenvisitation.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   110459 Nov 11 19:12 how-danish-one-person-companies-get-paid.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   140443 Nov 11 19:12 ikke-en-sammensvaergelse-et-system.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    90375 Nov 17 10:31 iran-radioaktiv-bombe-washington-2026.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   236131 Nov 13 12:08 israelsk-luftangreb-nasser-hospital-gaza.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    83144 Nov 12 17:45 konspirationsteorier-der-viste-sig-at-vaere-sande.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   177773 Nov 11 19:12 kronik-to-aartier-i-skyggen.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   137070 Nov 17 02:37 london-palestine-film-festival-27-2026.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   252759 Nov 15 07:58 mike-marcum-tidsmaskinen.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    96073 Nov 11 19:12 nordic-offshore-wind.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   139244 Nov 20 05:51 operation-highjump-1946-1947.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   224768 Nov 25 22:54 otte-aartier-krig-israel-1948-2026.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   153740 Nov 11 19:12 paragraf-6-visitationszoner-analyse.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   177278 Nov 19 12:18 peter-thiel-og-palantir.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   175650 Nov 14 16:11 simon-squibb-oekonomi-raad-max-amini-2026.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   166119 Nov 11 19:12 trump-produkter-forretningsimperium.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   214294 Nov 23 06:21 tupac-officiel-udlaegning-tvivl-2026.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   108976 Nov 11 19:12 vandet-under-verden.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    93427 Nov 14 15:03 vestbredden-bryllupper-begravelser-razziaer-2026.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   132091 Nov 11 19:12 voldsomme-scener-derby-parken-udebanefans.jpg
+
+assets/img/derby-2026:
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 11 10:21 .
+drwxr-xr-x  32 nordlysco.dk nordlysco.dk     4096 Nov 27 20:25 ..
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   125704 Nov 11 10:21 fanmarch-politi-oesterbrogade.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   160680 Nov 11 10:21 fanmarch-pressefotograf-oesterbrogade.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   185221 Nov 11 10:21 parken-tunnel-stewards-tifo.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   195326 Nov 11 10:21 parken-udebaneafsnit-pyro-roeg.jpg
+
+assets/img/dobbeltspalte:
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 16 08:56 .
+drwxr-xr-x  32 nordlysco.dk nordlysco.dk     4096 Nov 27 20:25 ..
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   174160 Nov 16 10:53 enkelt-elektroner.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   119631 Nov 16 10:53 laser-dobbeltspalte.jpg
+
+assets/img/domstol:
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 11 01:48 .
+drwxr-xr-x  32 nordlysco.dk nordlysco.dk     4096 Nov 27 20:25 ..
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   239967 Nov 11 02:12 christiansborg-slotsholmen.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   259887 Nov 11 02:12 hoejesteret-bygning.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   175145 Nov 11 02:12 hoejesteret-slotsholmen.jpg
+
+assets/img/frimurerne-2026:
+drwxr-xr-x   3 nordlysco.dk nordlysco.dk     4096 Nov 15 03:51 .
+drwxr-xr-x  32 nordlysco.dk nordlysco.dk     4096 Nov 27 20:25 ..
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   102644 Nov 15 07:58 01-lysbyggernes-loge.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   106181 Nov 15 07:57 02-hiram-abiff-soejlerne.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   129216 Nov 15 07:58 03-rosslyn-stenhuggere.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   101063 Nov 15 07:57 04-oplysning-illuminati-bibliotek.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   135399 Nov 15 07:57 05-hjoernestenen-1793.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    54943 Nov 15 07:58 07-skyggelogen.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    51671 Nov 15 07:58 08-arezzo-1981.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    59982 Nov 15 07:57 09-diana-vaughan-1897.jpg
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 15 03:51 1600
+
+assets/img/frimurerne-2026/1600:
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 15 03:51 .
+drwxr-xr-x   3 nordlysco.dk nordlysco.dk     4096 Nov 15 03:51 ..
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   336302 Nov 15 07:58 01-lysbyggernes-loge.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   337770 Nov 15 07:58 02-hiram-abiff-soejlerne.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   411918 Nov 15 07:58 03-rosslyn-stenhuggere.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   334892 Nov 15 07:58 04-oplysning-illuminati-bibliotek.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   418803 Nov 15 07:58 05-hjoernestenen-1793.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   177399 Nov 15 07:58 07-skyggelogen.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   162891 Nov 15 07:58 08-arezzo-1981.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   195770 Nov 15 07:58 09-diana-vaughan-1897.jpg
+
+assets/img/gaza-2026:
+drwxr-xr-x   3 nordlysco.dk nordlysco.dk     4096 Nov 14 13:50 .
+drwxr-xr-x  32 nordlysco.dk nordlysco.dk     4096 Nov 27 20:25 ..
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 14 13:51 1600
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   106698 Nov 14 13:50 2026-rantisi.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    87532 Nov 14 13:50 forside-vestbredden.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   105831 Nov 14 13:50 gaza-deir-al-balah-drone.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   140909 Nov 14 13:50 gaza-hassan-el-banna.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   126729 Nov 14 13:50 gaza-khan-younis-seqaly.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   148505 Nov 14 13:50 gaza-khan-younis-sikali.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   176601 Nov 14 13:50 gaza-rafah-luftfoto.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   129415 Nov 14 13:50 gaza-rimal-2023.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    51860 Nov 14 13:50 gaza-rog-tasnim.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    70370 Nov 14 13:50 gaza-telte-unicef.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   100410 Nov 14 13:50 gaza-vand.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   305551 Nov 12 23:23 khan-younis-al-seqaly-2024.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   252686 Nov 12 23:23 khan-younis-hovedgade-2025-arkivfoto.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   250444 Nov 12 23:23 khan-younis-hovedgade-2025.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk     3915 Nov 12 23:23 kort-gaza-nasser-hospital-mobil.svg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk     4371 Nov 12 23:23 kort-gaza-nasser-hospital.svg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    35947 Nov 14 13:50 vestbredden-jenin-razzia.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    58235 Nov 14 13:50 vestbredden-mughayyir-brandt-hus.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    92907 Nov 14 13:50 vestbredden-mughayyir-brandte-biler.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   153616 Nov 14 13:50 vestbredden-mughayyir-dyr.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    40077 Nov 14 13:50 vestbredden-silwad-moske.jpg
+
+assets/img/gaza-2026/1600:
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 14 13:51 .
+drwxr-xr-x   3 nordlysco.dk nordlysco.dk     4096 Nov 14 13:50 ..
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   422064 Nov 14 13:51 2026-rantisi.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   299089 Nov 14 13:51 gaza-deir-al-balah-drone.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   260674 Nov 14 13:51 gaza-hassan-el-banna.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   323295 Nov 14 13:51 gaza-khan-younis-seqaly.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   155000 Nov 14 13:51 gaza-khan-younis-sikali.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   328503 Nov 14 13:51 gaza-rafah-luftfoto.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   515736 Nov 14 13:51 gaza-rimal-2023.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   129153 Nov 14 13:51 gaza-rog-tasnim.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   265415 Nov 14 13:51 gaza-telte-unicef.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   179237 Nov 14 13:51 gaza-vand.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   166294 Nov 14 13:51 vestbredden-jenin-razzia.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   141978 Nov 14 13:51 vestbredden-mughayyir-brandt-hus.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   231454 Nov 14 13:51 vestbredden-mughayyir-brandte-biler.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   592516 Nov 14 13:51 vestbredden-mughayyir-dyr.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    88890 Nov 14 13:51 vestbredden-silwad-moske.jpg
+
+assets/img/gaza-whistleblowere-2026:
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 27 20:25 .
+drwxr-xr-x  32 nordlysco.dk nordlysco.dk     4096 Nov 27 20:25 ..
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    42941 Nov 27 20:32 jabalia-destruction.jpg
+
+assets/img/gta6-2026:
+drwxr-xr-x   3 nordlysco.dk nordlysco.dk     4096 Nov 16 23:41 .
+drwxr-xr-x  32 nordlysco.dk nordlysco.dk     4096 Nov 27 20:25 ..
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 16 23:41 1600
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   121431 Nov 16 23:41 leonida-highway.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   132191 Nov 16 23:41 vice-city-neon.jpg
+
+assets/img/gta6-2026/1600:
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 16 23:41 .
+drwxr-xr-x   3 nordlysco.dk nordlysco.dk     4096 Nov 16 23:41 ..
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   314431 Nov 16 23:41 leonida-highway.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   348650 Nov 16 23:41 vice-city-neon.jpg
+
+assets/img/hertil-2026:
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 27 20:25 .
+drwxr-xr-x  32 nordlysco.dk nordlysco.dk     4096 Nov 27 20:25 ..
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    97206 Nov 27 20:32 hertil-og-ikke-laengere-delekort-1200x630.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    55793 Nov 27 20:32 imperiets-storhedstid-og-nedfald-800.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   295376 Nov 27 20:32 imperiets-storhedstid-og-nedfald-kilde.png
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   161509 Nov 27 20:32 imperiets-storhedstid-og-nedfald.jpg
+
+assets/img/historie-2026:
+drwxr-xr-x   3 nordlysco.dk nordlysco.dk     4096 Nov 25 22:53 .
+drwxr-xr-x  32 nordlysco.dk nordlysco.dk     4096 Nov 27 20:25 ..
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 25 22:54 1600
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    59704 Nov 25 22:53 1967.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    50946 Nov 25 22:53 1973.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    67850 Nov 25 22:53 campdavid.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   136825 Nov 25 22:53 flygtninge.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    48635 Nov 25 22:53 gaza.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    88142 Nov 25 22:53 hero.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    61559 Nov 25 22:53 iron.jpg
+
+assets/img/historie-2026/1600:
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 25 22:54 .
+drwxr-xr-x   3 nordlysco.dk nordlysco.dk     4096 Nov 25 22:53 ..
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   226619 Nov 25 22:54 1967.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    81407 Nov 25 22:54 1973.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   272735 Nov 25 22:54 campdavid.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   459844 Nov 25 22:53 flygtninge.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   108336 Nov 25 22:54 gaza.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   427072 Nov 25 22:53 hero.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   219400 Nov 25 22:54 iron.jpg
+
+assets/img/iran-dc-2026:
+drwxr-xr-x   3 nordlysco.dk nordlysco.dk     4096 Nov 17 10:32 .
+drwxr-xr-x  32 nordlysco.dk nordlysco.dk     4096 Nov 27 20:25 ..
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 17 10:31 1600
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   179717 Nov 17 10:31 scott-bessent-treasury.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   104614 Nov 17 10:31 treasury-building-night.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    38445 Nov 17 10:31 washington-capitol-dusk.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   116489 Nov 17 10:32 white-house-south.jpg
+
+assets/img/iran-dc-2026/1600:
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 17 10:31 .
+drwxr-xr-x   3 nordlysco.dk nordlysco.dk     4096 Nov 17 10:32 ..
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   418682 Nov 17 10:31 scott-bessent-treasury.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   377352 Nov 17 10:31 treasury-building-night.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   140630 Nov 17 10:31 washington-capitol-dusk.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   473915 Nov 17 10:31 white-house-south.jpg
+
+assets/img/konspiration:
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 12 17:45 .
+drwxr-xr-x  32 nordlysco.dk nordlysco.dk     4096 Nov 27 20:25 ..
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   255166 Nov 12 17:45 batteriskift-telefon.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    54496 Nov 12 17:45 edward-snowden-2013.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   298000 Nov 12 17:45 epstein-domstolen-2019.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    65659 Nov 12 17:45 hero-uap-gimbal.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    70435 Nov 12 17:45 mkultra-dokument-1953.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    59041 Nov 12 17:45 odni-uap-rapport-2021.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   259580 Nov 12 17:45 operation-northwoods-1962.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   286555 Nov 12 17:45 serverracks-bots.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   150725 Nov 12 17:45 tuskegee-studiet.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   158761 Nov 12 17:45 wuhan-institut-for-virologi.jpg
+
+assets/img/lpff-2026:
+drwxr-xr-x   3 nordlysco.dk nordlysco.dk     4096 Nov 17 02:39 .
+drwxr-xr-x  32 nordlysco.dk nordlysco.dk     4096 Nov 27 20:25 ..
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 17 02:38 1600
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   114779 Nov 17 02:38 barbican-centre-lakeside.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   107971 Nov 17 02:38 curzon-mayfair.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    86002 Nov 17 02:39 rio-cinema-dalston.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   114808 Nov 17 02:39 soas-university-london.jpg
+
+assets/img/lpff-2026/1600:
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 17 02:38 .
+drwxr-xr-x   3 nordlysco.dk nordlysco.dk     4096 Nov 17 02:39 ..
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   469834 Nov 17 02:37 barbican-centre-lakeside.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   617209 Nov 17 02:38 curzon-mayfair.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   317233 Nov 17 02:38 rio-cinema-dalston.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   449192 Nov 17 02:38 soas-university-london.jpg
+
+assets/img/magtens-maend:
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 21 22:35 .
+drwxr-xr-x  32 nordlysco.dk nordlysco.dk     4096 Nov 27 20:25 ..
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   202928 Nov 21 22:35 avis-arkiv.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   166478 Nov 21 22:35 christiansborg-skygge.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   274225 Nov 21 22:35 lukkede-doere.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   190668 Nov 21 22:35 tom-retssal.jpg
+
+assets/img/mike-marcum-2026:
+drwxr-xr-x   3 nordlysco.dk nordlysco.dk     4096 Nov 15 07:58 .
+drwxr-xr-x  32 nordlysco.dk nordlysco.dk     4096 Nov 27 20:25 ..
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   115898 Nov 15 07:58 01-vortexen-i-baghaven.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    99666 Nov 15 07:58 02-jacobs-ladder-paa-verandaen.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   104260 Nov 15 07:58 03-lagerbygningen-i-kansas.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    75912 Nov 15 07:58 04-marken-i-ohio.jpg
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 15 07:58 1600
+
+assets/img/mike-marcum-2026/1600:
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 15 07:58 .
+drwxr-xr-x   3 nordlysco.dk nordlysco.dk     4096 Nov 15 07:58 ..
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   396863 Nov 15 07:58 01-vortexen-i-baghaven.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   353367 Nov 15 07:58 02-jacobs-ladder-paa-verandaen.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   378440 Nov 15 07:58 03-lagerbygningen-i-kansas.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   308870 Nov 15 07:58 04-marken-i-ohio.jpg
+
+assets/img/operation-highjump-1946-1947:
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 20 05:52 .
+drwxr-xr-x  32 nordlysco.dk nordlysco.dk     4096 Nov 27 20:25 ..
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    23183 Nov 20 05:52 base.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   131695 Nov 20 05:52 byrd.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   127963 Nov 20 05:52 carrier.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    37136 Nov 20 05:52 sennet.jpg
+
+assets/img/peter-thiel-palantir:
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 18 19:51 .
+drwxr-xr-x  32 nordlysco.dk nordlysco.dk     4096 Nov 27 20:25 ..
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   285067 Nov 18 19:51 dansk-politi.jpg
+
+assets/img/protokol:
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 11 01:48 .
+drwxr-xr-x  32 nordlysco.dk nordlysco.dk     4096 Nov 27 20:25 ..
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   292062 Nov 11 02:11 politi-i-indsats.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   305535 Nov 11 02:11 politi-ved-demonstration.jpg
+
+assets/img/simon-squibb-2026:
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 14 16:11 .
+drwxr-xr-x  32 nordlysco.dk nordlysco.dk     4096 Nov 27 20:25 ..
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   464329 Nov 14 16:11 emirates-towers-dubai-1bfs.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   466170 Nov 14 16:11 london-finansdistrikt-ivarksatteri.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    83161 Nov 14 16:11 publikum-1bfs-wild-truth.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   247202 Nov 14 16:11 simon-squibb-max-amini-wild-truth.jpg
+
+assets/img/trump-produkter:
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 11 10:44 .
+drwxr-xr-x  32 nordlysco.dk nordlysco.dk     4096 Nov 27 20:25 ..
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    67083 Nov 11 10:44 trump-mobile-t1-telefon.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   290385 Nov 11 10:44 trump-shuttle-727-laguardia.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   287769 Nov 11 10:44 trump-signature-collection-saet.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   372042 Nov 11 10:44 trump-tower-atrium-rulletrappe.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   315694 Nov 11 10:44 trump-tower-indgang.jpg
+
+assets/img/tupac-2026:
+drwxr-xr-x   3 nordlysco.dk nordlysco.dk     4096 Nov 23 06:21 .
+drwxr-xr-x  32 nordlysco.dk nordlysco.dk     4096 Nov 27 20:25 ..
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 23 06:21 1600
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    98270 Nov 23 06:21 court.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   243255 Nov 23 06:21 graffiti.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   103366 Nov 23 06:20 mgm.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   248153 Nov 23 06:21 star.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   100086 Nov 23 06:20 strip.jpg
+
+assets/img/tupac-2026/1600:
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 23 06:21 .
+drwxr-xr-x   3 nordlysco.dk nordlysco.dk     4096 Nov 23 06:21 ..
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   159715 Nov 23 06:21 court.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   854551 Nov 23 06:21 graffiti.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   396733 Nov 23 06:21 mgm.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   904938 Nov 23 06:21 star.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   358408 Nov 23 06:21 strip.jpg
+
+assets/img/voldsoffer-debat:
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 13 12:08 .
+drwxr-xr-x  32 nordlysco.dk nordlysco.dk     4096 Nov 27 20:25 ..
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   216046 Nov 13 12:08 domhuset-nytorv-med-lov.jpg
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   334262 Nov 13 12:08 folketingssalen-christiansborg.jpg
+
+assets/js:
+drwxr-xr-x   3 nordlysco.dk nordlysco.dk     4096 Nov 20 05:52 .
+drwxr-xr-x   7 nordlysco.dk nordlysco.dk     4096 Nov 20 14:43 ..
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    12575 Nov 27 20:32 articles-index.js
+-rw-r--r--   1 nordlysco.dk nordlysco.dk     3254 Nov 18 01:24 brand-wordmark.js
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    23146 Nov 27 20:31 edition-data.js
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    14781 Nov 19 12:19 edition-nav.js
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    10568 Nov 27 20:31 emner.js
+-rw-r--r--   1 nordlysco.dk nordlysco.dk     7000 Nov 19 12:19 forside-prioritering.js
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    26660 Nov 15 08:34 forum.js
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 11 15:27 fraser
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    36420 Nov 25 22:32 fraser-i18n.js
+-rw-r--r--   1 nordlysco.dk nordlysco.dk     3151 Nov 17 00:56 gspeech-aktiver.js
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    23437 Nov 15 08:34 i18n.js
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    67980 Nov 25 22:55 indhold-i18n.js
+-rw-r--r--   1 nordlysco.dk nordlysco.dk     3641 Nov 19 12:19 kilder.js
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    14289 Nov 19 12:19 main.js
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    12485 Nov 15 09:51 menu-emner.js
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    27594 Nov 27 20:32 meta-artikler.js
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    14533 Nov 17 10:31 oversaet-krop.js
+-rw-r--r--   1 nordlysco.dk nordlysco.dk     4036 Nov 16 10:53 samtykke.js
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    10880 Nov 25 22:54 seneste-historier.js
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    25205 Nov 17 10:31 sprog-tillaeg.js
+
+assets/js/fraser:
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 11 15:27 .
+drwxr-xr-x   3 nordlysco.dk nordlysco.dk     4096 Nov 20 05:52 ..
+-rw-r--r--   1 nordlysco.dk nordlysco.dk     8003 Nov 11 15:27 about.js
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    12151 Nov 11 15:27 advertise.js
+-rw-r--r--   1 nordlysco.dk nordlysco.dk     1554 Nov 16 23:40 contact.js
+-rw-r--r--   1 nordlysco.dk nordlysco.dk     1008 Nov 17 00:00 forside.js
+-rw-r--r--   1 nordlysco.dk nordlysco.dk     7173 Nov 11 15:27 newsletter.js
+-rw-r--r--   1 nordlysco.dk nordlysco.dk     6277 Nov 16 23:40 privacy.js
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    13284 Nov 11 15:27 standards.js
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    11064 Nov 11 15:27 stoet.js
+-rw-r--r--   1 nordlysco.dk nordlysco.dk     4481 Nov 11 15:27 terms.js
+
+assets/video:
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 21 10:40 .
+drwxr-xr-x   7 nordlysco.dk nordlysco.dk     4096 Nov 20 14:43 ..
+-rw-r--r--   1 nordlysco.dk nordlysco.dk  1817221 Nov 21 10:40 amoc-atlantisk-stroem-dk.mp4
+-rw-r--r--   1 nordlysco.dk nordlysco.dk  8935101 Nov 20 14:43 rough-eu-ai-act-3-questions-ROUGH-VOICEOVER-2026-11-20.mp4
+
+data:
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 24 14:15 .
+drwxr-xr-x   9 nordlysco.dk nordlysco.dk    12288 Nov 27 20:25 ..
+-rw-r--r--   1 nordlysco.dk nordlysco.dk      361 Nov 13 03:03 .htaccess
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   114688 Nov 24 14:15 forum.sqlite
+
+lyd:
+drwxr-xr-x   6 nordlysco.dk nordlysco.dk     4096 Nov 10 04:23 .
+drwxr-xr-x   9 nordlysco.dk nordlysco.dk    12288 Nov 27 20:25 ..
+-rw-r--r--   1 nordlysco.dk nordlysco.dk      343 Nov 10 04:23 .htaccess
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 10 04:14 assets
+-rw-r--r--   1 nordlysco.dk nordlysco.dk     8078 Nov 10 04:15 index.html
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   126533 Nov 10 04:14 logo.png
+drwxr-xr-x   4 nordlysco.dk nordlysco.dk     4096 Nov 10 04:15 modeller
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 10 04:14 ort
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 10 04:15 piper
+
+lyd/assets:
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 10 04:14 .
+drwxr-xr-x   6 nordlysco.dk nordlysco.dk     4096 Nov 10 04:23 ..
+-rw-r--r--   1 nordlysco.dk nordlysco.dk     3509 Nov 10 04:14 index-CcopP79a.js
+-rw-r--r--   1 nordlysco.dk nordlysco.dk 14848852 Nov 10 04:14 ort-wasm-simd-threaded-qh98TCA_.wasm
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   179099 Nov 10 04:14 worker-FuXRk2DT.js
+
+lyd/modeller:
+drwxr-xr-x   4 nordlysco.dk nordlysco.dk     4096 Nov 10 04:15 .
+drwxr-xr-x   6 nordlysco.dk nordlysco.dk     4096 Nov 10 04:23 ..
+drwxr-xr-x   3 nordlysco.dk nordlysco.dk     4096 Nov 10 04:15 da
+drwxr-xr-x   3 nordlysco.dk nordlysco.dk     4096 Nov 10 04:15 en
+
+lyd/modeller/da:
+drwxr-xr-x   3 nordlysco.dk nordlysco.dk     4096 Nov 10 04:15 .
+drwxr-xr-x   4 nordlysco.dk nordlysco.dk     4096 Nov 10 04:15 ..
+drwxr-xr-x   3 nordlysco.dk nordlysco.dk     4096 Nov 10 04:15 da_DK
+
+lyd/modeller/da/da_DK:
+drwxr-xr-x   3 nordlysco.dk nordlysco.dk     4096 Nov 10 04:15 .
+drwxr-xr-x   3 nordlysco.dk nordlysco.dk     4096 Nov 10 04:15 ..
+drwxr-xr-x   3 nordlysco.dk nordlysco.dk     4096 Nov 10 04:15 talesyntese
+
+lyd/modeller/da/da_DK/talesyntese:
+drwxr-xr-x   3 nordlysco.dk nordlysco.dk     4096 Nov 10 04:15 .
+drwxr-xr-x   3 nordlysco.dk nordlysco.dk     4096 Nov 10 04:15 ..
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 10 04:15 medium
+
+lyd/modeller/da/da_DK/talesyntese/medium:
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 10 04:15 .
+drwxr-xr-x   3 nordlysco.dk nordlysco.dk     4096 Nov 10 04:15 ..
+-rw-r--r--   1 nordlysco.dk nordlysco.dk 63201294 Nov 10 04:15 da_DK-talesyntese-medium.onnx
+-rw-r--r--   1 nordlysco.dk nordlysco.dk     4878 Nov 10 04:15 da_DK-talesyntese-medium.onnx.json
+
+lyd/modeller/en:
+drwxr-xr-x   3 nordlysco.dk nordlysco.dk     4096 Nov 10 04:15 .
+drwxr-xr-x   4 nordlysco.dk nordlysco.dk     4096 Nov 10 04:15 ..
+drwxr-xr-x   3 nordlysco.dk nordlysco.dk     4096 Nov 10 04:15 en_GB
+
+lyd/modeller/en/en_GB:
+drwxr-xr-x   3 nordlysco.dk nordlysco.dk     4096 Nov 10 04:15 .
+drwxr-xr-x   3 nordlysco.dk nordlysco.dk     4096 Nov 10 04:15 ..
+drwxr-xr-x   3 nordlysco.dk nordlysco.dk     4096 Nov 10 04:15 northern_english_male
+
+lyd/modeller/en/en_GB/northern_english_male:
+drwxr-xr-x   3 nordlysco.dk nordlysco.dk     4096 Nov 10 04:15 .
+drwxr-xr-x   3 nordlysco.dk nordlysco.dk     4096 Nov 10 04:15 ..
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 10 04:15 medium
+
+lyd/modeller/en/en_GB/northern_english_male/medium:
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 10 04:15 .
+drwxr-xr-x   3 nordlysco.dk nordlysco.dk     4096 Nov 10 04:15 ..
+-rw-r--r--   1 nordlysco.dk nordlysco.dk 63201294 Nov 10 04:15 en_GB-northern_english_male-medium.onnx
+-rw-r--r--   1 nordlysco.dk nordlysco.dk     4847 Nov 10 04:15 en_GB-northern_english_male-medium.onnx.json
+
+lyd/ort:
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 10 04:14 .
+drwxr-xr-x   6 nordlysco.dk nordlysco.dk     4096 Nov 10 04:23 ..
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    24738 Nov 10 04:14 ort-wasm-simd-threaded.mjs
+-rw-r--r--   1 nordlysco.dk nordlysco.dk 14848852 Nov 10 04:14 ort-wasm-simd-threaded.wasm
+
+lyd/piper:
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 10 04:15 .
+drwxr-xr-x   6 nordlysco.dk nordlysco.dk     4096 Nov 10 04:23 ..
+-rw-r--r--   1 nordlysco.dk nordlysco.dk 18077249 Nov 10 04:14 piper_phonemize.data
+-rw-r--r--   1 nordlysco.dk nordlysco.dk   635212 Nov 10 04:15 piper_phonemize.wasm
+
+nyhedsbrev:
+drwxr-xr-x   2 nordlysco.dk nordlysco.dk     4096 Nov 15 10:59 .
+drwxr-xr-x   9 nordlysco.dk nordlysco.dk    12288 Nov 27 20:25 ..
+-rw-r--r--   1 nordlysco.dk nordlysco.dk       88 Nov 16 10:53 .htaccess
+-rw-r--r--   1 nordlysco.dk nordlysco.dk     2219 Nov 16 10:53 afmeld.php
+-rw-r--r--   1 nordlysco.dk nordlysco.dk     2979 Nov 16 10:53 bekraeft.php
+-rw-r--r--   1 nordlysco.dk nordlysco.dk      162 Nov 16 10:53 index.php
+-rw-r--r--   1 nordlysco.dk nordlysco.dk    23957 Nov 16 10:53 lib.php
+-rw-r--r--   1 nordlysco.dk nordlysco.dk     5912 Nov 16 10:53 send.php
+-rw-r--r--   1 nordlysco.dk nordlysco.dk     1938 Nov 16 10:53 smtp-test.php
+-rw-r--r--   1 nordlysco.dk nordlysco.dk      787 Nov 16 10:53 status.php
+-rw-r--r--   1 nordlysco.dk nordlysco.dk     3932 Nov 16 10:53 tilmeld.php
+
