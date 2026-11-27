@@ -32,9 +32,6 @@ jobs:
       - name: Hent repo
         uses: actions/checkout@v4
 
-      - name: Installer lftp (bruges til fuld server-revision + backup)
-        run: sudo apt-get update -qq && sudo apt-get install -y -qq lftp
-
       - name: "0) Tjek at FTP-secrets rent faktisk er sat (uden at afsløre værdierne)"
         env:
           FTP_USER: ${{ secrets.NORDLYSCO_FTP_USERNAME }}
@@ -62,57 +59,61 @@ jobs:
         run: |
           set +e
           mkdir -p revision
+          OUTFILE="revision/server-revision-$(date +%Y-%m-%d_%H%M).txt"
+          : > curl-revision-err.txt
 
-          echo "=== Delvist tjek A: curl verbose FTPS-forbindelse (port 21, explicit TLS) ==="
-          curl -v --connect-timeout 15 --ftp-ssl --insecure \
-            "ftp://$FTP_HOST:21/public_html/" \
-            -u "$FTP_USER:$FTP_PASS" \
-            -o /dev/null > curl-debug-ftps.txt 2>&1
-          curl_ftps_status=$?
-          echo "--- curl FTPS-tjek, exit-kode: $curl_ftps_status ---"
-          cat curl-debug-ftps.txt
+          echo "=== Forsøg A: rekursiv filliste i én kommando (LIST -R) ==="
+          curl -s --connect-timeout 20 --ftp-ssl --insecure -u "$FTP_USER:$FTP_PASS" \
+            -X "LIST -R" "ftp://$FTP_HOST:21/public_html/" > "$OUTFILE" 2>>curl-revision-err.txt
+          status_a=$?
+          lines=$(wc -l < "$OUTFILE" 2>/dev/null | tr -d ' ')
+          echo "LIST -R exit-kode: $status_a, linjer fundet: $lines"
 
-          echo ""
-          echo "=== Delvist tjek B: curl almindelig (ukrypteret) FTP, kun til diagnose ==="
-          curl -v --connect-timeout 15 \
-            "ftp://$FTP_HOST:21/public_html/" \
-            -u "$FTP_USER:$FTP_PASS" \
-            -o /dev/null > curl-debug-plainftp.txt 2>&1
-          curl_plain_status=$?
-          echo "--- curl almindelig FTP-tjek, exit-kode: $curl_plain_status ---"
-          cat curl-debug-plainftp.txt
-
-          if [ $curl_ftps_status -ne 0 ] && [ $curl_plain_status -ne 0 ]; then
-            ERRTXT_A=$(tail -c 900 curl-debug-ftps.txt | tr '\n' ' ' | tr '\r' ' ')
-            echo "::error::curl kan slet ikke forbinde/logge ind på $FTP_HOST. FTPS-forsøg (exit $curl_ftps_status): $ERRTXT_A"
+          if [ "$status_a" -ne 0 ] || [ -z "$lines" ] || [ "$lines" -lt 1 ]; then
+            echo ""
+            echo "=== Forsøg A gav intet brugbart - forsøg B: manuel rekursiv crawl med MLSD (RFC 3659) ==="
+            : > "$OUTFILE"
+            crawl() {
+              local dir="$1"
+              local listing
+              listing=$(curl -s --connect-timeout 20 --ftp-ssl --insecure -u "$FTP_USER:$FTP_PASS" \
+                -X MLSD "ftp://$FTP_HOST:21${dir}/" 2>>curl-revision-err.txt)
+              while IFS= read -r line; do
+                [ -z "$line" ] && continue
+                entry_type=$(echo "$line" | grep -oE 'type=[A-Za-z]+' | head -1 | cut -d= -f2)
+                name=$(echo "$line" | sed -E 's/^[^ ]*; //')
+                [ -z "$name" ] && continue
+                case "$entry_type" in
+                  file)
+                    echo "FILE ${dir}/${name}" >> "$OUTFILE"
+                    ;;
+                  dir)
+                    echo "DIR  ${dir}/${name}" >> "$OUTFILE"
+                    crawl "${dir}/${name}"
+                    ;;
+                esac
+              done <<< "$listing"
+            }
+            crawl "/public_html"
           fi
 
-          echo ""
-          echo "=== Kører nu den rigtige filliste med lftp (uanset curl-resultat ovenfor) ==="
-          lftp -u "$FTP_USER","$FTP_PASS" -e "
-            set ftp:ssl-force true;
-            set ftp:ssl-protect-data true;
-            set ssl:verify-certificate no;
-            find /public_html/ > ../revision/server-revision-$(date +%Y-%m-%d_%H%M).txt;
-            bye
-          " "$FTP_HOST" > lftp-trin1-output.txt 2>&1
-          status=$?
-          echo "--- lftp output (trin 1) ---"
-          cat lftp-trin1-output.txt
-          if [ $status -ne 0 ]; then
-            ERRTXT=$(tail -c 900 lftp-trin1-output.txt | tr '\n' ' ' | tr '\r' ' ' | sed 's/%0A/ /g')
-            echo "::error::LFTP FEJLEDE i trin 1 (REVISION), exit-kode $status. Output: $ERRTXT"
-            exit $status
+          lines=$(wc -l < "$OUTFILE" 2>/dev/null | tr -d ' ')
+          echo "Antal linjer i fillisten: $lines"
+          echo "--- evt. fejl undervejs ---"
+          cat curl-revision-err.txt
+          if [ -z "$lines" ] || [ "$lines" -lt 1 ]; then
+            echo "::error::Kunne ikke lave nogen filliste af serveren (hverken LIST -R eller MLSD-crawl virkede). Se curl-revision-err.txt i ci-ftp-debug-grenen for detaljer."
+            exit 1
           fi
-          echo "Antal filer/mapper fundet på serveren:"
-          wc -l revision/*.txt
+          echo "Revision gemt: $OUTFILE"
+          wc -l "$OUTFILE"
 
-      - name: "Debug: commit fuldt lftp-output til ci-ftp-debug-grenen (altid, uanset success/fejl)"
+      - name: "Debug: commit fuldt curl/ftp-output til ci-ftp-debug-grenen (altid, uanset success/fejl)"
         if: always()
         run: |
           mkdir -p /tmp/ftp-debug-dump
           rm -f /tmp/ftp-debug-dump/seneste.txt
-          for f in curl-debug-ftps.txt curl-debug-plainftp.txt lftp-trin1-output.txt; do
+          for f in curl-revision-err.txt revision/*.txt backup-trin2-output.txt; do
             if [ -f "$f" ]; then
               echo "=== $f ===" >> /tmp/ftp-debug-dump/seneste.txt
               cat "$f" >> /tmp/ftp-debug-dump/seneste.txt
@@ -145,21 +146,26 @@ jobs:
           FTP_USER: ${{ secrets.NORDLYSCO_FTP_USERNAME }}
           FTP_PASS: ${{ secrets.NORDLYSCO_FTP_PASSWORD }}
         run: |
+          set +e
           mkdir -p backup-foer-upload
           cd nordlysco-deploy
           # Byg en liste over præcis de relative stier, vi er ved at overskrive.
           find . -type f | sed 's|^\./||' > ../filer-der-overskrives.txt
           cat ../filer-der-overskrives.txt
           cd ..
+          : > backup-trin2-output.txt
           while IFS= read -r fil; do
+            [ -z "$fil" ] && continue
             mkdir -p "backup-foer-upload/$(dirname "$fil")"
-            lftp -u "$FTP_USER","$FTP_PASS" -e "
-              set ftp:ssl-force true;
-              set ftp:ssl-protect-data true;
-              set ssl:verify-certificate no;
-              get -O \"backup-foer-upload/$(dirname "$fil")\" \"/public_html/$fil\" || echo \"(fandtes ikke på serveren endnu: $fil)\";
-              bye
-            " "$FTP_HOST" 2>&1 | tee -a lftp-trin2-output.txt
+            curl -s --connect-timeout 20 --ftp-ssl --insecure -u "$FTP_USER:$FTP_PASS" \
+              "ftp://$FTP_HOST:21/public_html/$fil" \
+              -o "backup-foer-upload/$fil" 2>>backup-trin2-output.txt
+            if [ $? -ne 0 ] || [ ! -s "backup-foer-upload/$fil" ]; then
+              echo "(fandtes ikke på serveren endnu, eller kunne ikke hentes: $fil)" | tee -a backup-trin2-output.txt
+              rm -f "backup-foer-upload/$fil"
+            else
+              echo "Backup OK: $fil" | tee -a backup-trin2-output.txt
+            fi
           done < filer-der-overskrives.txt
 
       - name: Gem revision + backup som artifacts (tilgængelige i 90 dage)
