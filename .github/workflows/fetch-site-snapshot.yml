@@ -1,0 +1,77 @@
+name: Hent snapshot af nordlysco.dk (til udvikling)
+
+# Køres KUN manuelt. Henter en liste af navngivne filer fra den LIVE server
+# via curl/FTPS (samme metode som nu bruges i deploy-nordlysco.yml) og
+# committer dem til en dedikeret gren "site-snapshot", som Arena bagefter
+# kan hente med almindelig `git fetch` + `git show`. Ændrer IKKE noget på
+# serveren - ren læsning.
+
+on:
+  workflow_dispatch:
+    inputs:
+      filer:
+        description: 'Linjesepareret liste af stier under /public_html/, der skal hentes'
+        required: true
+        default: |
+          index.html
+          assets/js/edition-data.js
+          assets/js/articles-index.js
+          assets/js/meta-artikler.js
+          assets/js/emner.js
+
+jobs:
+  hent_snapshot:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Hent de ønskede filer fra serveren
+        env:
+          FTP_HOST: ftp.simply.com
+          FTP_USER: ${{ secrets.NORDLYSCO_FTP_USERNAME }}
+          FTP_PASS: ${{ secrets.NORDLYSCO_FTP_PASSWORD }}
+          FILLISTE: ${{ github.event.inputs.filer }}
+        run: |
+          set +e
+          mkdir -p snapshot
+          echo "$FILLISTE" > filliste.txt
+          cat filliste.txt
+          fail=0
+          while IFS= read -r fil; do
+            fil=$(echo "$fil" | xargs)
+            [ -z "$fil" ] && continue
+            mkdir -p "snapshot/$(dirname "$fil")"
+            echo "Henter: $fil"
+            curl -s --connect-timeout 20 --ftp-ssl --insecure \
+              -u "$FTP_USER:$FTP_PASS" \
+              "ftp://$FTP_HOST:21/public_html/$fil" \
+              -o "snapshot/$fil"
+            status=$?
+            if [ $status -ne 0 ] || [ ! -s "snapshot/$fil" ]; then
+              echo "FEJL: kunne ikke hente $fil (exit $status)"
+              fail=1
+            else
+              echo "OK: $fil ($(wc -c < "snapshot/$fil") bytes)"
+            fi
+          done < filliste.txt
+          if [ "$fail" -ne 0 ]; then
+            echo "::error::En eller flere filer kunne ikke hentes. Se output ovenfor."
+          fi
+
+      - name: Commit snapshot til site-snapshot-grenen
+        if: always()
+        run: |
+          rm -rf /tmp/snapshot-push-repo
+          git clone --depth 1 "https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git" /tmp/snapshot-push-repo
+          cd /tmp/snapshot-push-repo
+          git config user.name "nordlysco-deploy-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git checkout --orphan site-snapshot-tmp
+          git rm -rf . > /dev/null 2>&1 || true
+          cp -r "$GITHUB_WORKSPACE/snapshot/." ./ 2>/dev/null || true
+          echo "Køre-ID: ${{ github.run_id }} - $(date -u)" > ./info.txt
+          git add -A
+          git commit -m "Site-snapshot fra run ${{ github.run_id }}"
+          git push origin HEAD:site-snapshot --force
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
