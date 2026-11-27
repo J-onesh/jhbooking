@@ -26,6 +26,8 @@ jobs:
   revision_og_backup:
     runs-on: ubuntu-latest
     if: ${{ github.event.inputs.confirm == 'JA' }}
+    permissions:
+      contents: write
     steps:
       - name: Hent repo
         uses: actions/checkout@v4
@@ -116,6 +118,38 @@ jobs:
           fi
           echo "Antal filer/mapper fundet på serveren:"
           wc -l revision/*.txt
+
+      - name: "Debug: commit fuldt lftp-output til ci-ftp-debug-grenen (altid, uanset success/fejl)"
+        if: always()
+        run: |
+          mkdir -p /tmp/ftp-debug-dump
+          rm -f /tmp/ftp-debug-dump/seneste.txt
+          for f in lftp-debug-connect.txt lftp-debug-nossl.txt lftp-trin1-output.txt; do
+            if [ -f "$f" ]; then
+              echo "=== $f ===" >> /tmp/ftp-debug-dump/seneste.txt
+              cat "$f" >> /tmp/ftp-debug-dump/seneste.txt
+              echo "" >> /tmp/ftp-debug-dump/seneste.txt
+            fi
+          done
+          if [ ! -f /tmp/ftp-debug-dump/seneste.txt ]; then
+            echo "(ingen debug-filer fundet - intet at committe)" > /tmp/ftp-debug-dump/seneste.txt
+          fi
+          # Arbejd i en helt separat, frisk clone i /tmp, så vi IKKE rører
+          # hovedarbejdsmappen (nordlysco-deploy/ skal bruges af senere trin).
+          rm -rf /tmp/debug-push-repo
+          git clone --depth 1 "https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git" /tmp/debug-push-repo
+          cd /tmp/debug-push-repo
+          git config user.name "nordlysco-deploy-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git checkout --orphan ci-ftp-debug-tmp
+          git rm -rf . > /dev/null 2>&1 || true
+          cp /tmp/ftp-debug-dump/seneste.txt ./seneste-ftp-debug.txt
+          echo "Køre-ID: ${{ github.run_id }} - $(date -u)" > ./info.txt
+          git add seneste-ftp-debug.txt info.txt
+          git commit -m "FTP-debug fra run ${{ github.run_id }}"
+          git push origin HEAD:ci-ftp-debug --force
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: "2) BACKUP: hent de filer ned, som er ved at blive overskrevet"
         env:
